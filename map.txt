@@ -1,0 +1,13 @@
+$netstat = Get-NetTCPConnection -State Established,TimeWait
+
+graph network @{rankdir='LR'}  {
+    Node @{shape='rect'}
+
+    $EdgeParam = @{
+        Node       = $netstat
+        FromScript = {$_.LocalAddress}
+        ToScript   = {$_.RemoteAddress}
+        Attributes = @{label={'{0}:{1}' -f $_.LocalPort,$_.RemotePort}}
+    }
+    Edge @EdgeParam
+} | Export-PSGraph -ShowGraph
