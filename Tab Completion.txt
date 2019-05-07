@@ -1,0 +1,10 @@
+Add to JSON file:
+
+"editor.tabCompletion": "on"
+
+JSON file location example:
+
+C:\Users\3grey\.vscode\extensions\ms-vscode.powershell-1.12.1
+
+Edit the Package (JSON) file
+
